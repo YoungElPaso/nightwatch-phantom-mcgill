@@ -14,19 +14,6 @@ The above tasks are automated using Grunt and a couple utility packages help wit
 $ npm install
 ```
 
-And if you haven't already, do:
-
-```
-$ npm i grunt-cli -g
-```
-to install grunt globally.
-
-And, finally run the selenium-standalone install once (so its installed, duh!):
-
-```
-$ ./node_modules/selenium-standalone/bin/selenium-standalone install
-```
-
 ### To run the example test:
 
 ```
