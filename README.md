@@ -1,9 +1,12 @@
-# nightwatch-phantom-mcgill
+# nightwatch-phantom-mcgill [![Build Status](https://travis-ci.org/YoungElPaso/nightwatch-phantom-mcgill.svg?branch=master)](https://travis-ci.org/YoungElPaso/nightwatch-phantom-mcgill)
+
 A package to run some automated tests for McGill.ca front end assets and sites.
 
 This package uses a nightwatchjs for the end-to-end style tests and phantomjs/selenium to emulate a browser and run commands against a given site.  
 
 The above tasks are automated using Grunt and a couple utility packages help with some custom front end validation (contrasting colors in the example test).
+
+
 
 ### To install:
 
