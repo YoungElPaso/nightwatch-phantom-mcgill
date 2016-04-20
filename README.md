@@ -18,6 +18,12 @@ $ npm i grunt-cli -g
 ```
 to install grunt globally.
 
+And, finally run the selenium-standalone install once (so its installed, duh!):
+
+```
+$ ./node_modules/selenium-standalone/bin/selenium-standalone install
+```
+
 ### To run the example test:
 
 ```
