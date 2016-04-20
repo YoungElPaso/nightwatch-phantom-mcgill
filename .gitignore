@@ -1,0 +1,6 @@
+node_modules/
+screenshots/
+reports/
+todos
+nightwatch
+temp-tests/

@@ -1,0 +1,26 @@
+{
+  "name": "nightwatch-phantom-mcgill",
+  "version": "1.0.0",
+  "description": "A package to run some automated tests for McGill front-end assets",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "grunt tests"
+  },
+  "author": "Jesse Sutherland",
+  "license": "ISC",
+  "private": "true",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "get-contrast": "^1.1.1",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-nightwatch": "^0.5.2",
+    "grunt-selenium-standalone": "^1.0.1",
+    "nightwatch": "^0.8.18",
+    "phantomjs-prebuilt": "^2.1.7",
+    "selenium-standalone": "^5.1.0"
+  }
+}
