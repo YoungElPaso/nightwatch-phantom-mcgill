@@ -21,7 +21,8 @@ module.exports = {
     'color', function(result) {
       colorA = result.value;
     });
-    client.getCssProperty('.block-superfish', 'background-color',
+    // client.getCssProperty('.block-superfish', 'background-color',
+    client.getCssProperty('#mcgill-logo', 'background-color',
     function(result) {
       colorB = result.value;
     });
