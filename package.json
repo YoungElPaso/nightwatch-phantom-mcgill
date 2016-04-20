@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "grunt tests"
+    "test": "grunt tests",
+    "postinstall": "selenium-standalone install"
   },
   "author": "Jesse Sutherland",
   "license": "ISC",
