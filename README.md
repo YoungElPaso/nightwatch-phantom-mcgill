@@ -21,3 +21,7 @@ $ npm test
 ```
 
 NB: the test as originally committed fails for now pending a code change to the McGill.ca website.  Its just included as an example, but it should pass within a week of this commit.
+
+### To run tests that require authentication:
+
+Some tests run against sites that require authentication.  The npm test script can be passed two parameters that in turn will be passed to Grunt and then into the global variables available in the nightwatch tests, which can the be used to fill in authentication forms etc.  Any such test has the prefix 'auth-' and will be *excluded* from npm test unless the user and password parameters are passed. The two params are *pw* and *user*.
