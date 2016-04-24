@@ -1,21 +1,10 @@
-// Loads the contrast package.
-var contrast = require('get-contrast');
-
-// Loads the rgb package.
-var rgb = require('rgb');
-
-// A simple test for contrasting colors from two elements in the DOM.
+// A test to check that block widths are what they are supposed to be, i.e. half width, full width, and third widths of their containers.
 module.exports = {
   'Block Width Test': function(client) {
 
     // For this test, we need to go to mobile resolution on the client.
     client.resizeWindow(400, 800);
-
-    // TODO: document this a bit better.
-    // Ideally this would be temporary or encrypted. Could be an include from
-    // NPM? or command line?
-    //console.log('globals? ', client.globals.authenticationPw);
-
+  
     // TODO: this should be conditioned, and a tag should be added to tests that
     // require authentication, since by definition they can't be run in travis
     // build and so will always fail. travis should build and run w/ passing
