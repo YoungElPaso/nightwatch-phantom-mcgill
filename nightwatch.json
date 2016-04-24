@@ -17,7 +17,6 @@
       "webdriver.ie.driver" : ""
     }
   },
-
   "test_settings" : {
     "default" : {
       "selenium_port"  : 4444,
@@ -27,6 +26,7 @@
         "enabled" : false,
         "path" : "./screenshots"
       },
+      "exclude": "tests/auth-*",
       "desiredCapabilities" : {
         "browserName" : "phantomjs",
         "javascriptEnabled" : true,
