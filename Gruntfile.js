@@ -1,6 +1,26 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    nightwatch: {},
+    nightwatch: {
+      options: {
+
+        // Need to ensure that we have all the right target hiearchy to add to
+        // globals.
+        test_settings: {
+          default: {
+            exclude: doAuthenticated(),
+
+            // Assign some global variables values from the command line. Using
+            // grunt.options.
+            globals: {
+              authentication: {
+                userName: grunt.option('user'),
+                pW: grunt.option('pw')
+              }
+            }
+          }
+        }
+      }
+    },
     selenium_standalone: {
       options: {
 
@@ -11,6 +31,15 @@ module.exports = function(grunt) {
       },
     },
   });
+
+  // Checks if we have user creds, if so, do all the tests.
+  function doAuthenticated() {
+    if (grunt.option('user') && grunt.option('pw')) {
+
+      // Exclude none.
+      return '';
+    }
+  }
 
   // Add selenium task.
   grunt.loadNpmTasks('grunt-selenium-standalone');
