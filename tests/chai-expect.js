@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 module.exports = {
   'Demo Chai Expect': function (client) {
     client.resizeWindow(413, 800);
