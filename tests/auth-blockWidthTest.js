@@ -19,39 +19,20 @@ module.exports = {
     // For this test, we need to go to mobile resolution on the client.
     client.resizeWindow(400, 800);
 
-    // TODO: this should be a function or a tag should be added to tests that
-    // require authentication, since by definition they can't be run in travis
-    // build and so will always fail. travis should build and run w/ passing
-    // tests. NB: these tests are excluded already via grunt and nightatch.json
-    // but here's another check.
-    if (!client.globals.authentication.userName ||
-      !client.globals.authentication.pW) {
-      console.log('no authentication creds, bailing, ending process!');
-      client.end();
-      process.exit();
-    }
-
-    // Go to a WMS page and login. TODO: add url to command-line options.
-    client.url('https://qa.ccs.mcgill.ca/samples/user/login')
-    .pause(300)
-    .setValue('#edit-name--2', client.globals.authentication.userName)
-    .setValue('#edit-pass--2', client.globals.authentication.pW)
-    .click('#edit-submit--2')
-    .pause(100);
+    // Do login procedure. Function defined in globals.
+    client.globals.doLogin(client);
 
     // Go to the WMS page to see the blocks.
     client.url('https://qa.ccs.mcgill.ca/samples/blocks/block-layouts')
-    .pause(300);
+    .pause(100);
 
     // Get a block we want and get the (NB: *computed*) css value for width.
-
-    // Using expect BDD assertion, much cleaner.  Only need client.perform()
-    // to do stuff with DOM queries outside of assertion, like compare values.
-    // half-width.
+    // Get half-width block. Using contains means we can have 'fuzzy' matching
+    // which is good because sometimes the value may contain many decimals.
     client.expect.element('div.block.half-width').to.have.css('width')
     .which.contains('400');
 
-    // third-width.
+    // Get third-width block.
     client.expect.element('div.block.third-width').to.have.css('width')
     .which.contains('400');
 
@@ -63,35 +44,18 @@ module.exports = {
     // For this test, we need to go to desktop resolution on the client.
     client.resizeWindow(960, 800);
 
-    // TODO: this should be a function or a tag should be added to tests that
-    // require authentication, since by definition they can't be run in travis
-    // build and so will always fail. travis should build and run w/ passing
-    // tests. NB: these tests are excluded already via grunt and nightatch.json
-    // but here's another check.
-    if (!client.globals.authentication.userName ||
-      !client.globals.authentication.pW) {
-      console.log('no authentication creds, bailing, ending process!');
-      client.end();
-      process.exit();
-    }
-
-    // Go to a WMS page and login. TODO: add url to command-line options.
-    client.url('https://qa.ccs.mcgill.ca/samples/user/login')
-    .pause(300)
-    .setValue('#edit-name--2', client.globals.authentication.userName)
-    .setValue('#edit-pass--2', client.globals.authentication.pW)
-    .click('#edit-submit--2')
-    .pause(100);
+    // Do login procedure. Function defined in globals.
+    client.globals.doLogin(client);
 
     // Go to the WMS page to see the blocks.
     client.url('https://qa.ccs.mcgill.ca/samples/blocks/block-layouts')
-    .pause(300);
+    .pause(100);
 
-    // half-width.
+    // Get half-width block.
     client.expect.element('div.block.half-width').to.have.css('width')
     .which.contains('372');
 
-    // third-width.
+    // Get third-width block.
     client.expect.element('div.block.third-width').to.have.css('width')
     .which.contains('245');
 
