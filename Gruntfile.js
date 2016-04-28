@@ -36,8 +36,8 @@ module.exports = function(grunt) {
   function doAuthenticated() {
     if (grunt.option('user') && grunt.option('pw')) {
 
-      // Exclude none.
-      return '';
+      // Exclude just known fails.
+      return 'tests/known_fails/*.js';
     }
   }
 

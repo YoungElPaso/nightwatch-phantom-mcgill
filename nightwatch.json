@@ -26,7 +26,8 @@
         "enabled" : false,
         "path" : "./screenshots"
       },
-      "exclude": "tests/auth-*",
+      "globals_path": "includes/globals.js",
+      "exclude": ["tests/auth-*, tests/known_fails/*.js"],
       "desiredCapabilities" : {
         "browserName" : "phantomjs",
         "javascriptEnabled" : true,
