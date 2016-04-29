@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     nightwatch: {
       options: {
@@ -14,12 +14,13 @@ module.exports = function(grunt) {
             globals: {
               authentication: {
                 userName: grunt.option('user'),
-                pW: grunt.option('pw')
-              }
-            }
-          }
-        }
-      }
+                pW: grunt.option('pw'),
+              },
+              baseUrl: grunt.option('url'),
+            },
+          },
+        },
+      },
     },
     selenium_standalone: {
       options: {
@@ -49,5 +50,5 @@ module.exports = function(grunt) {
 
   // Create a tests task that starts the selenium server, and runs nightwatch.
   grunt.registerTask('tests', ['selenium_standalone:default:start',
-  'nightwatch']);
+  'nightwatch',]);
 };
