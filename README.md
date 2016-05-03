@@ -29,6 +29,10 @@ Some tests run against sites that require authentication.  The npm test script c
 ```
 $ npm test -- --user=foo --pw=bar
 ```
+Those parameters will be passed into the test and to the function doLogin(client, url), as part of the client.globals object.
+
+If no url (see below) is provided in the command line or in the test itself, this authentication will happen against a default QA site, which may or may not correspond to the site being used in the rest of the test, so design the test with caution if it uses authentication.
+
 
 ### Additional parameters:
 
