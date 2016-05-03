@@ -24,4 +24,18 @@ NB: the test as originally committed fails for now pending a code change to the 
 
 ### To run tests that require authentication:
 
-Some tests run against sites that require authentication.  The npm test script can be passed two parameters that in turn will be passed to Grunt and then into the global variables available in the nightwatch tests, which can the be used to fill in authentication forms etc.  Any such test has the prefix 'auth-' and will be *excluded* from npm test unless the user and password parameters are passed. The two params are *pw* and *user*.
+Some tests run against sites that require authentication.  The npm test script can be passed two parameters that in turn will be passed to Grunt and then into the global variables available in the nightwatch tests, which can the be used to fill in authentication forms etc.  Any such test has the prefix 'auth-' and will be *excluded* from npm test unless the user and password parameters are passed. The two params are *pw* and *user*.  Running tests with these params looks like this:
+
+```
+$ npm test -- --user=foo --pw=bar
+```
+
+### Additional parameters:
+
+There's now a baseUrl param that can be added to the tests (most don't use it however), but this one requires it:
+https://github.com/YoungElPaso/nightwatch-phantom-mcgill/blob/master/tests/known_fails/searchProgramsCoursesSolrBlockTest.js
+The param in this case is 'url'.  Here's an example:
+
+```
+$ npm test -- --user=foo --pw=bar --url=https://www.google.com
+```
