@@ -27,7 +27,7 @@ module.exports = {
     client.resizeWindow(400, 800);
 
     // Go to a WMS page and wait 300 ms.
-    client.url('https://www.mcgill.ca/wms').pause(300);
+    client.url('https://www.mcgill.ca/ruis').pause(300);
 
     // Get the colors we want to check (the menu and its parent).
     var colorA;
@@ -84,7 +84,7 @@ module.exports = {
           // This is what we want to try.
           test = contrast.isAccessible(colorA, colorB);
           // Send the result to handleResult;
-          handleResult(null, test);
+          return handleResult(null, test);
         } catch (e) {
           // Send the error to handleResult.
           handleResult(e, null);
@@ -100,7 +100,6 @@ module.exports = {
       };
       // This is a better node type function, with argument and callback.
       var test = wrapContrastTest(contrast, handleResult);
-
       // Assert the value of the contrast test.
       client.assert.equal(test, true);
 
