@@ -2,11 +2,15 @@ module.exports = {
   'Search Courses and Programs Solr Block Test': function(client) {
     client.resizeWindow(960, 800);
 
+    // Local override for baseUrl global; one of three ways to set this var.
+    client.globals.baseUrl = 'https://testbed13.ccs.mcgill.ca/template/';
+
     // Do login procedure. Function defined in globals.
-    client.globals.doLogin(client);
+    client.globals.doLogin(client, client.globals.baseUrl);
 
     // Go check out a search.
-    client.url(client.globals.baseUrl + 'search/mcgill/english');
+    client.url(client.globals.baseUrl + 'search/mcgill/english')
+    .pause(1000);
 
     client.expect.element('#inner-container h1').text.to
     .contain('McGill');
